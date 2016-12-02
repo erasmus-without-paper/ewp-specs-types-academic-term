@@ -23,7 +23,15 @@ See attached [`schema.xsd`](schema.xsd) file.
 Examples
 --------
 
-WRTODO
+```xml
+<academic-term>
+    <academic-year-id>2008/2009</academic-year-id>
+    <display-name xml:lang="pl">Semestr letni 2008/2009</display-name>
+    <display-name xml:lang="en">Spring semester 2008/2009</display-name>
+    <start-date>2009-02-18</start-date>
+    <end-date>2009-06-07</end-date>
+</academic-term>
+```
 
 
 [develhub]: http://developers.erasmuswithoutpaper.eu/

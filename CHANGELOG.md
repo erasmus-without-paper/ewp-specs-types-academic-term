@@ -5,6 +5,17 @@ This document describes all the changes made to the *EWP Academic Term Data
 Types* document, starting from its first released version.
 
 
+1.1.0
+-----
+
+* Introduced *EWP unique academic term identifiers* (`EwpAcademicTermId` type).
+  Added optional `<ewp-id>` to the academic term type.
+
+* Added a separate `complexType` for academic term contents. Now the users are
+  not forced to reuse the `<academic-term>` element, and this can be useful in
+  some situations.
+
+
 1.0.0
 -----
 

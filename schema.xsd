@@ -126,65 +126,65 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:element name="academic-term">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="academic-year-id" minOccurs="1" maxOccurs="1" type="AcademicYearId">
-                    <xs:annotation>
-                        <xs:documentation>
-                            ID of the academic year which this term is part of.
+    <xs:complexType name="AcademicTerm">
+        <xs:sequence>
+            <xs:element name="academic-year-id" minOccurs="1" maxOccurs="1" type="AcademicYearId">
+                <xs:annotation>
+                    <xs:documentation>
+                        ID of the academic year which this term is part of.
 
-                            Server developers: Please note that the list of all possible IDs is *preset* by
-                            EWP (see AcademicYearId documentation). We are NOT refering to an internal IDs
-                            some of you might perhaps have in your local databases!
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="ewp-id" minOccurs="0" maxOccurs="1" type="EwpAcademicTermId">
-                    <xs:annotation>
-                        <xs:documentation>
-                            EWP unique academic term identifier. It is RECOMMENDED for server developers to
-                            provide it, if possible. If given, then it MUST start with the same academic
-                            year identifier as was provided in the `academic-year-id` element.
+                        Server developers: Please note that the list of all possible IDs is *preset* by
+                        EWP (see AcademicYearId documentation). We are NOT refering to an internal IDs
+                        some of you might perhaps have in your local databases!
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ewp-id" minOccurs="0" maxOccurs="1" type="EwpAcademicTermId">
+                <xs:annotation>
+                    <xs:documentation>
+                        EWP unique academic term identifier. It is RECOMMENDED for server developers to
+                        provide it, if possible. If given, then it MUST start with the same academic
+                        year identifier as was provided in the `academic-year-id` element.
 
-                            You might wonder, why it's only recommended, instead of being required`:
+                        You might wonder, why it's only recommended, instead of being required`:
 
-                            - It's because we're currently not sure if this identifier can be provided for
-                              all possible academic terms. It is somewhat experimental (read about it in
-                              EwpAcademicTermId specification).
+                        - It's because we're currently not sure if this identifier can be provided for
+                          all possible academic terms. It is somewhat experimental (read about it in
+                          EwpAcademicTermId specification).
 
-                            - Also, this element has been added to this specification after it has been
-                              released as stable - this means that adding new required elements is not
-                              backward compatible. Note however, that this element MAY become required in
-                              future major releases of this specification.
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="display-name" minOccurs="1" maxOccurs="unbounded" type="ewp:StringWithOptionalLang">
-                    <xs:annotation>
-                        <xs:documentation>
-                            The name of the academic term, formatted in a way if should be displayed to the
-                            users. Based on this name, the users should be able to uniquely identify which
-                            term it refers to. For example, "Winter Trimester 2010/2011".
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="start-date" minOccurs="1" maxOccurs="1" type="xs:date">
-                    <xs:annotation>
-                        <xs:documentation>
-                            First day of this term (inclusive).
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="end-date" minOccurs="1" maxOccurs="1" type="xs:date">
-                    <xs:annotation>
-                        <xs:documentation>
-                            Last day of this term (inclusive).
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+                        - Also, this element has been added to this specification after it has been
+                          released as stable - this means that adding new required elements is not
+                          backward compatible. Note however, that this element MAY become required in
+                          future major releases of this specification.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="display-name" minOccurs="1" maxOccurs="unbounded" type="ewp:StringWithOptionalLang">
+                <xs:annotation>
+                    <xs:documentation>
+                        The name of the academic term, formatted in a way if should be displayed to the
+                        users. Based on this name, the users should be able to uniquely identify which
+                        term it refers to. For example, "Winter Trimester 2010/2011".
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="start-date" minOccurs="1" maxOccurs="1" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation>
+                        First day of this term (inclusive).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="end-date" minOccurs="1" maxOccurs="1" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation>
+                        Last day of this term (inclusive).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="academic-term"/>
 
 </xs:schema>

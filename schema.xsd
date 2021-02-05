@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xml="http://www.w3.org/XML/1998/namespace"
     xmlns:ewp="https://github.com/erasmus-without-paper/ewp-specs-architecture/blob/stable-v1/common-types.xsd"
     elementFormDefault="qualified"
 
@@ -95,7 +94,7 @@
                   2 semesters within a single academic year.
 
                 - TermNumber MUST be less or equal to NumberOfTerms, and it indicates the
-                  number of this particualar academic term (within this academic year).
+                  number of this particular academic term (within this academic year).
 
                 Both TermNumber and NumberOfTerms are integers. In practice, we don't think
                 they will ever reach a number greater than 4, but currently this format allows
@@ -134,28 +133,15 @@
                         ID of the academic year which this term is part of.
 
                         Server developers: Please note that the list of all possible IDs is *preset* by
-                        EWP (see AcademicYearId documentation). We are NOT refering to an internal IDs
+                        EWP (see AcademicYearId documentation). We are NOT referring to an internal IDs
                         some of you might perhaps have in your local databases!
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ewp-id" minOccurs="0" maxOccurs="1" type="EwpAcademicTermId">
+            <xs:element name="term-id" minOccurs="1" maxOccurs="1" type="TermId">
                 <xs:annotation>
                     <xs:documentation>
-                        EWP unique academic term identifier. It is RECOMMENDED for server developers to
-                        provide it, if possible. If given, then it MUST start with the same academic
-                        year identifier as was provided in the `academic-year-id` element.
-
-                        You might wonder, why it's only recommended, instead of being required`:
-
-                        - It's because we're currently not sure if this identifier can be provided for
-                          all possible academic terms. It is somewhat experimental (read about it in
-                          EwpAcademicTermId specification).
-
-                        - Also, this element has been added to this specification after it has been
-                          released as stable - this means that adding new required elements is not
-                          backward compatible. Note however, that this element MAY become required in
-                          future major releases of this specification.
+                        ID of the academic term.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
@@ -192,5 +178,35 @@
             </xs:documentation>
         </xs:annotation>
     </xs:element>
+
+    <xs:complexType name="TermId">
+        <xs:annotation>
+            <xs:documentation>
+                An identifier of the academic term.
+
+                This identifier does not relate to a year, so to identify an academic term that is fixed in time you
+                need to also specify the academic year (see `AcademicTerm` type).
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="term-number" minOccurs="1" maxOccurs="1" type="xs:integer">
+                <xs:annotation>
+                    <xs:documentation>
+                        The number of this particular academic term within this academic year. Must be less or equal
+                        to `total-terms`.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="total-terms" minOccurs="1" maxOccurs="1" type="xs:integer">
+                <xs:annotation>
+                    <xs:documentation>
+                        The total number of academic terms of this type which occur within a single academic year.
+
+                        For example: "2" means a semester, because there are 2 semesters within a single academic year.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
 
 </xs:schema>

@@ -26,7 +26,10 @@ Examples
 ```xml
 <academic-term>
     <academic-year-id>2008/2009</academic-year-id>
-    <ewp-id>2008/2009-2/2</ewp-id>
+    <term-id>
+        <term-number>2</term-number>
+        <total-terms>2</total-terms>
+    </term-id>
     <display-name xml:lang="pl">Semestr letni 2008/2009</display-name>
     <display-name xml:lang="en">Spring semester 2008/2009</display-name>
     <start-date>2009-02-18</start-date>

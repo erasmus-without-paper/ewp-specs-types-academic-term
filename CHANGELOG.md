@@ -4,6 +4,12 @@ Release notes
 This document describes all the changes made to the *EWP Academic Term Data
 Types* document, starting from its first released version.
 
+2.0.0
+-----
+
+* Added `<term-id>` type as a replacement for `<ewp-id>`. It contains separate
+  fields for `<term-number>` and `<total-terms>`.
+  
 
 1.1.0
 -----
